@@ -22,48 +22,12 @@ Frontend: Next.js (App Router or Pages Router)
 
 Backend: Next.js API Routes / Node.js
 
-Database: MongoDB / PostgreSQL / Prisma (depending on your choice)
+Database: MongoDB 
 
 Styling: Tailwind CSS / CSS Modules
 
-Auth: NextAuth.js (optional)
+Auth: NextAuth.js 
 
-Hosting: Vercel / Render / Railway
+Hosting: Render 
 
-📦 Installation
-bash
-Copy
-Edit
-git clone https://github.com/your-username/bitlinks.git
-cd bitlinks
-npm install
-⚙️ Configuration
-Create a .env.local file in the root directory:
 
-env
-Copy
-Edit
-DATABASE_URL=your_database_url
-NEXTAUTH_SECRET=your_secret_key (if using auth)
-BASE_URL=http://localhost:3000
-(Optional) Add your analytics or auth provider config in .env.local.
-
-🚀 Running the App
-bash
-Copy
-Edit
-npm run dev
-# or
-yarn dev
-Visit http://localhost:3000 to access BitLinks locally.
-
-📁 Project Structure
-bash
-Copy
-Edit
-/app or /pages         → Next.js routes
-/components            → Reusable UI components
-/lib                   → Utility functions (slug generator, API helpers)
-/api                   → URL shortening API logic
-/models or /prisma     → DB schema and models
-.env.local             → Environment variables
