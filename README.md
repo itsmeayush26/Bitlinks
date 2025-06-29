@@ -1,48 +1,69 @@
-🔗 BitLinks
-A clean, fast, and minimal URL shortener built with Next.js. Turn long, messy URLs into short, shareable links in seconds.
+🚀 BitLinks — URL Shortener Web App
+BitLinks is a fast and minimal URL shortener built with Next.js. Create, manage, and share custom short links with ease. Perfect for individuals, marketers, or developers who want a simple and effective way to shorten long URLs.
 
-⚡ Features
-🚀 Instant URL shortening
+🌐 Live Demo
 
-🎯 Custom aliases
 
-🔐 (Optional) Auth for managing links
+✨ Features
+🔗 Shorten long URLs instantly
 
-🧩 Built with Next.js + Tailwind
+🧠 Custom aliases for your short links
 
-🛠️ Stack
-Framework: Next.js
+📈 Click tracking and analytics (optional)
 
-DB: MongoDB / PostgreSQL
+👥 User authentication (optional)
 
-Styling: Tailwind CSS
+📦 API endpoint for programmatic access
 
-Auth: NextAuth (optional)
+⚡ Powered by Next.js — fast and SEO friendly
 
-Hosting: Vercel
+🛠️ Tech Stack
+Frontend: Next.js (App Router or Pages Router)
 
-📦 Setup
+Backend: Next.js API Routes / Node.js
+
+Database: MongoDB / PostgreSQL / Prisma (depending on your choice)
+
+Styling: Tailwind CSS / CSS Modules
+
+Auth: NextAuth.js (optional)
+
+Hosting: Vercel / Render / Railway
+
+📦 Installation
 bash
 Copy
 Edit
 git clone https://github.com/your-username/bitlinks.git
 cd bitlinks
 npm install
-cp .env.example .env.local
-npm run dev
-🔥 API Example
-POST /api/shorten
+⚙️ Configuration
+Create a .env.local file in the root directory:
 
-json
+env
 Copy
 Edit
-{ "originalUrl": "https://long.com/page", "customAlias": "shorty" }
-→ https://bit.ly/shorty
+DATABASE_URL=your_database_url
+NEXTAUTH_SECRET=your_secret_key (if using auth)
+BASE_URL=http://localhost:3000
+(Optional) Add your analytics or auth provider config in .env.local.
 
-📁 Structure
+🚀 Running the App
 bash
 Copy
 Edit
-/pages or /app   → Routes & API
-/components      → UI Elements
-/lib             → Utils & DB
+npm run dev
+# or
+yarn dev
+Visit http://localhost:3000 to access BitLinks locally.
+
+📁 Project Structure
+bash
+Copy
+Edit
+/app or /pages         → Next.js routes
+/components            → Reusable UI components
+/lib                   → Utility functions (slug generator, API helpers)
+/api                   → URL shortening API logic
+/models or /prisma     → DB schema and models
+.env.local             → Environment variables
