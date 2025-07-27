@@ -3,8 +3,8 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="bg-blue-100 ">
-      <section className="p-20 w-screen grid grid-cols-2 h-[50vh]">
+    <main className="bg-blue-200">
+      <section className=" w-screen grid grid-cols-2 h-screen">
         <div className="flex flex-col gap-4 items-center justify-center">
           <p className="text-4xl font-bold ">
             The best URL shortner on the web

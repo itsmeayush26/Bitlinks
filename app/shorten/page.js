@@ -1,41 +1,41 @@
-"use client";
-import Link from "next/link";
-import React from "react";
-import { useState } from "react";
+"use client"
+import Link from 'next/link'
+import React, { useState } from 'react'
 
 const Shorten = () => {
-  const [url, seturl] = useState("");
-  const [shorturl, setshorturl] = useState("");
-  const [generated, setGenerated] = useState("");
+  const [url, seturl] = useState("")
+  const [shorturl, setshorturl] = useState("")
+  const [generated, setGenerated] = useState("")
 
   const generate = () => {
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
     const raw = JSON.stringify({
-      url: url,
-      shorturl: shorturl,
+      "url": url,
+      "shorturl": shorturl
     });
 
     const requestOptions = {
       method: "POST",
       headers: myHeaders,
       body: raw,
-      redirect: "follow",
+      redirect: "follow"
     };
 
     fetch("/api/generate", requestOptions)
       .then((response) => response.json())
       .then((result) => {
-        setGenerated(`${process.env.NEXT_PUBLIC_HOST}/${shorturl}`);
-        seturl("");
-        setshorturl("");
+        setGenerated(`${process.env.NEXT_PUBLIC_HOST}/${shorturl}`)
+        seturl("")
+        setshorturl("")
+        console.log(result)
+        alert(result.message)
 
-        console.log(result);
-        alert(result.message);
       })
       .catch((error) => console.error(error));
-  };
+  }
+
 
   return (
     <div className="mx-auto max-w-lg bg-blue-100 my-16 p-8 rounded-lg flex flex-col gap-4">
@@ -46,7 +46,7 @@ const Shorten = () => {
           value={url}
           className="px-4 py-2 border border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600 rounded-md"
 
-          placeholder="Enter your URl"
+          placeholder="Enter your URL"
           onChange={(e) => {
             seturl(e.target.value);
           }}
@@ -71,17 +71,8 @@ const Shorten = () => {
         </button>
       </div>
 
-      {generated && (
-        <>
-          {" "}
-          <span className="font-bold text-lg">Your Link</span>
-          <code>
-            <Link target="_blank" href={generated}>
-              {generated}
-            </Link>
-          </code>
-        </>
-      )}
+      {generated && <> <span className='font-bold text-lg'>Your Link </span><code><Link target="_blank" href={generated}>{generated}</Link>
+      </code></>}
     </div>
   );
 };
