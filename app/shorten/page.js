@@ -3,7 +3,7 @@ import Link from "next/link";
 import React from "react";
 import { useState } from "react";
 
-const shorten = () => {
+const Shorten = () => {
   const [url, seturl] = useState("");
   const [shorturl, setshorturl] = useState("");
   const [generated, setGenerated] = useState("");
@@ -44,7 +44,8 @@ const shorten = () => {
         <input
           type="text"
           value={url}
-          className="px-4 py-2 focus:outline-blue-600 rounded-md "
+          className="px-4 py-2 border border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600 rounded-md"
+
           placeholder="Enter your URl"
           onChange={(e) => {
             seturl(e.target.value);
@@ -54,7 +55,8 @@ const shorten = () => {
         <input
           type="text"
           value={shorturl}
-          className="px-4 py-2 focus:outline-blue-600 rounded-md "
+          className="px-4 py-2 border border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-600 rounded-md"
+
           placeholder="Enter your prefere short URL text "
           onChange={(e) => {
             setshorturl(e.target.value);
@@ -63,7 +65,7 @@ const shorten = () => {
 
         <button
           onClick={generate}
-          className="bg-blue-500 rounded-lg shadow-lg p-3 py-1 my-3 font-bold text-white"
+          className="bg-blue-800 rounded-lg shadow-lg p-3 py-1 my-3 font-bold text-white"
         >
           Generate
         </button>
@@ -84,4 +86,4 @@ const shorten = () => {
   );
 };
 
-export default shorten;
+export default Shorten;

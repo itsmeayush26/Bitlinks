@@ -1,7 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 
-const contact = () => {
+const Contact = () => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -29,7 +29,7 @@ const contact = () => {
                     Contact Us
                 </h1>
                 <p className="text-center text-gray-700 mb-8">
-                    We'd love to hear from you. Please fill out the form below.
+                    We&apos;d love to hear from you. Please fill out the form below.
                 </p>
 
                 <form onSubmit={handleSubmit} className="space-y-5">
@@ -98,4 +98,4 @@ const contact = () => {
     );
 };
 
-export default contact;
+export default Contact;

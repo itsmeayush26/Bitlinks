@@ -19,18 +19,18 @@ const Navbar = () => {
         </li>
         <li>
           {/* 👇 Scrolls to #contact section on the same page */}
-          <a href="/contact" className="cursor-pointer hover:underline">
+          <Link href="/contact" className="cursor-pointer hover:underline">
             Contact Us
-          </a>
+          </Link>
         </li>
         <li className="flex gap-3">
           <Link href="/shorten">
-            <button className="bg-blue-300 rounded-lg shadow-lg px-4 py-1 font-bold">
+            <button className="bg-blue-400 rounded-lg shadow-lg px-4 py-1 font-bold">
               Try Now
             </button>
           </Link>
           <Link href="https://github.com/itsmeayush26/Bitlinks" target="_blank">
-            <button className="bg-blue-300 rounded-lg shadow-lg px-4 py-1 font-bold">
+            <button className="bg-blue-400  rounded-lg shadow-lg px-4 py-1 font-bold">
               GitHub
             </button>
           </Link>
