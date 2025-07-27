@@ -29,7 +29,7 @@ const Contact = () => {
                     Contact Us
                 </h1>
                 <p className="text-center text-gray-700 mb-8">
-                    We&apos;d love to hear from you. Please fill out the form below.
+                    We would love to hear from you. Please fill out the form below.
                 </p>
 
                 <form onSubmit={handleSubmit} className="space-y-5">
