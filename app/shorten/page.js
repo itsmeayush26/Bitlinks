@@ -12,29 +12,38 @@ const Shorten = () => {
     myHeaders.append("Content-Type", "application/json");
 
     const raw = JSON.stringify({
-      "url": url,
-      "shorturl": shorturl
+      url: url,
+      shorturl: shorturl,
     });
 
     const requestOptions = {
       method: "POST",
       headers: myHeaders,
       body: raw,
-      redirect: "follow"
+      redirect: "follow",
     };
 
     fetch("/api/generate", requestOptions)
-      .then((response) => response.json())
-      .then((result) => {
-        setGenerated(`${process.env.NEXT_PUBLIC_HOST}/${shorturl}`)
-        seturl("")
-        setshorturl("")
-        console.log(result)
-        alert(result.message)
-
+      .then(async (response) => {
+        if (!response.ok) {
+          const errorText = await response.text();
+          throw new Error(errorText || "Server error");
+        }
+        return response.json();
       })
-      .catch((error) => console.error(error));
-  }
+      .then((result) => {
+        setGenerated(`${process.env.NEXT_PUBLIC_HOST}/${shorturl}`);
+        seturl("");
+        setshorturl("");
+        console.log(result);
+        alert(result.message);
+      })
+      .catch((error) => {
+        console.error("Error:", error.message);
+        alert("Failed to generate short link. Please check your input or try again later.");
+      });
+  };
+
 
 
   return (
@@ -65,10 +74,11 @@ const Shorten = () => {
 
         <button
           onClick={generate}
-          className="bg-blue-800 rounded-lg shadow-lg p-3 py-1 my-3 font-bold text-white"
+          className="bg-blue-600 hover:bg-blue-800 shadow-lg hover:shadow-xl transition-all duration-200 rounded-lg p-3 py-1 my-3 font-bold text-white"
         >
           Generate
         </button>
+
       </div>
 
       {generated && <> <span className='font-bold text-lg'>Your Link </span><code><Link target="_blank" href={generated}>{generated}</Link>
